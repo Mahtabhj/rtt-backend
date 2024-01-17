@@ -1,0 +1,103 @@
+.custom-date-picker {
+  display: flex;
+  min-height: 250px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .react-datepicker {
+    display: flex;
+    margin: 0 78px;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    border: none;
+
+    &__navigation {
+      top: calc(50% - 14px);
+      width: 28px;
+      height: 28px;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+
+      &--previous {
+        left: -50px;
+        background: url('images/arrow.svg');
+        transform: rotate(180deg);
+      }
+
+      &--next {
+        right: -50px;
+        background: url('images/arrow.svg');
+      }
+    }
+
+    &__header {
+      padding: 0;
+      background-color: #FFFFFF;
+      border-radius: 0;
+      border-bottom: none;
+    }
+
+    &__current-month {
+      padding-left: 22px;
+      margin-bottom: 18px;
+      color: #B5B5C3;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 17px;
+      text-align: left;
+    }
+
+    &__month {
+      margin: 0 12px;
+    }
+
+    &__day-names {
+      display: flex;
+      margin-bottom: 6px;
+      padding: 0 22px;
+      justify-content: space-between;
+    }
+
+    &__day-name {
+      margin: 0;
+      width: auto;
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 12px;
+      text-transform: uppercase;
+    }
+
+    &__day {
+      margin: 3px;
+      border-radius: 4px;
+      font-size: 13px;
+      line-height: 27px;
+      width: 26px;
+      height: 26px;
+      user-select: none;
+
+      &:hover {
+        background: rgba(54, 153, 255, 0.7);
+        color: #FFFFFF;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &--selected {
+        background: #3699FF;
+        color: #FFFFFF;
+      }
+
+      &--disabled {
+        opacity: 0.3;
+      }
+    }
+  }
+}

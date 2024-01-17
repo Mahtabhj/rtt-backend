@@ -1,0 +1,12 @@
+.date-input {
+  position: relative;
+
+  &-popover.popover {
+    margin-top: 15px;
+    min-width: 390px!important;
+
+    .arrow {
+      display: none;
+    }
+  }
+}

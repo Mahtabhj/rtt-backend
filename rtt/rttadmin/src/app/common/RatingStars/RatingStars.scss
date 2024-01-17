@@ -1,0 +1,36 @@
+.rating-stars {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  & > svg {
+    margin-right: 10px;
+  }
+
+  &__star {
+    fill: transparent;
+
+    & > path {
+      stroke: #ddd;
+    }
+
+    &--fill {
+      fill: #17C191;
+
+      & > path {
+        stroke: #17C191;
+      }
+    }
+
+    &--clickable {
+      cursor: pointer;
+
+      &:hover {
+        & > path {
+          stroke: #17C191;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.checkboxes-filter {
+  display: flex;
+  padding: 6px;
+  width: 100%;
+  flex-direction: column;
+
+  &-wrapper__popover.popover {
+    max-width: 180px;
+  }
+
+  .form-control {
+    margin-bottom: 6px;
+  }
+
+  &__options {
+    position: relative;
+    display: flex;
+    padding-top: 2px;
+    width: 100%;
+    min-height: 39px;
+    max-height: 160px;
+    flex-direction: column;
+    overflow-y: auto;
+
+    .custom-checkbox {
+      margin-bottom: 6px;
+      min-height: auto;
+    }
+
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+    }
+  }
+
+  &__no-results {
+    display: flex;
+    min-height: inherit;
+    justify-content: center;
+    align-items: center;
+  }
+}

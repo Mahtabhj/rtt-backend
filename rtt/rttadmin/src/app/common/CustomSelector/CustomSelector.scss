@@ -1,0 +1,23 @@
+.custom-selector {
+  display: flex;
+  flex-direction: column;
+
+  &__option {
+    width: 100%;
+    min-height: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+
+    &:hover {
+      background: rgba(54, 153, 255, 0.7);
+      color: #FFFFFF;
+    }
+
+    &--active {
+      background: #3699FF;
+      color: #FFFFFF;
+    }
+  }
+}

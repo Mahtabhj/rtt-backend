@@ -1,0 +1,38 @@
+{% extends "admin/change_form.html" %}
+{% block extrastyle %}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const field_quota_for_all = Array.from(
+              document.getElementsByClassName('field-max_quota_for_all_documents')
+            )[1];
+
+            const field_quota_for_one = Array.from(
+              document.getElementsByClassName('field-max_quota_for_one_document')
+            )[1];
+
+            {#Checking if the region page is clicked or not during page load#}
+            if ($("#id_is_active_document_module").is(':checked')){
+                field_quota_for_all.style.display = 'block';
+                field_quota_for_one.style.display = 'block';
+            }
+            else {
+                field_quota_for_all.style.display = 'none';
+                field_quota_for_one.style.display = 'none';
+            }
+
+            {#Checking if the Region page is clicked or not when clicking the checkbox#}
+            $('input[type="checkbox"]').click(function(){
+                if(this.id == 'id_is_active_document_module' && $(this).prop("checked") == true){
+                  field_quota_for_all.style.display = 'block';
+                  field_quota_for_one.style.display = 'block';
+                }
+                else if(this.id == 'id_is_active_document_module' && $(this).prop("checked") == false){
+                     field_quota_for_all.style.display = 'none';
+                     field_quota_for_one.style.display = 'none';
+                }
+            });
+        });
+    </script>
+     {{ block.super }}
+{% endblock %}

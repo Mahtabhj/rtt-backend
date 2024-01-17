@@ -1,0 +1,28 @@
+.checkbox-blank {
+  margin: 2px;
+  width: 14px;
+  height: 14px;
+  border-width: 2px;
+  border-radius: 3px;
+  border-style: solid;
+
+  &:focus {
+    outline: none;
+  }
+
+  &--yellow {
+    border-color: #eece14;
+
+    &.checkbox-blank--selected {
+      background: #eece14;
+    }
+  }
+
+  &--green {
+    border-color: green;
+
+    &.checkbox-blank--selected {
+      background: green;
+    }
+  }
+}

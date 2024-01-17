@@ -1,0 +1,19 @@
+.select-attributes {
+  display: flex;
+  flex-direction: column;
+
+  &__row {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+
+    & > span {
+      width: 100%;
+      max-width: 120px;
+      padding: 0 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}

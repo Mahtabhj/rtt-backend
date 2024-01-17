@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+  pre_build:
+    commands:
+      - pip3 install awscli --upgrade
+      - echo Logging in to Amazon ECR...
+      - echo $IMAGE_REPO_NAME
+      - printenv > .env
+      - aws --version
+      - docker login -u $USER_NAME -p $PASSWORD
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build . --tag rtt-backend:latest --build-arg STATE=$STAG
+      - docker tag rtt-backend:latest $IMAGE_REPO_URL:$IMAGE_TAG
+  post_build:
+    commands:
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $IMAGE_REPO_URL
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push $IMAGE_REPO_URL:$IMAGE_TAG
+      - printf '{"ImageURI":"%s"}' $IMAGE_TAG > imageDetail.json
+artifacts:
+  files:
+    - "appspec.yaml"
+    - "imageDetail.json"
+    - $TASKDEF_NAME
+  name: BuildArtifact

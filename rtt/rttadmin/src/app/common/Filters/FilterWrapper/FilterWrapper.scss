@@ -1,0 +1,31 @@
+.filter-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+
+  &__button {
+    width: 12px;
+    height: 12px;
+    fill: #B5B5C3;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__popover.popover {
+    margin-top: 15px;
+    min-width: 130px;
+    border: none;
+    cursor: auto;
+    z-index: 10;
+
+    .arrow {
+      display: none;
+    }
+
+    .popover-body {
+      padding: 0;
+    }
+  }
+}

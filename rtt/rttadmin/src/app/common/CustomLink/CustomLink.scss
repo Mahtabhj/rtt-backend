@@ -1,0 +1,14 @@
+.custom-link {
+  svg {
+    width: 12px;
+    height: 12px;
+    margin-left: 5px;
+    fill: #3699FF;
+  }
+
+  &:hover {
+    svg {
+      fill: #0073E9;
+    }
+  }
+}

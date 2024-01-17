@@ -1,0 +1,18 @@
+.limit-filter {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+
+  &-wrapper__popover.popover {
+    min-width: 230px;
+  }
+
+  &__from {
+    padding-right: 8px;
+  }
+
+  &__to {
+    padding-right: 8px;
+    padding-left: 12px;
+  }
+}

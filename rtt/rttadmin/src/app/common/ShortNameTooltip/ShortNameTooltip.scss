@@ -1,0 +1,11 @@
+.short-name-tooltip.tooltip {
+  z-index: 17;
+
+  .tooltip-inner {
+    max-width: 420px;
+  }
+}
+
+.short-name-modal-tooltip.tooltip {
+  z-index: 1060;
+}

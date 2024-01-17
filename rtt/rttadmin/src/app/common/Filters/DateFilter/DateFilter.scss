@@ -1,0 +1,18 @@
+.date-filter {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+
+  &-wrapper__popover.popover {
+    min-width: 280px;
+  }
+
+  & > span {
+    padding-right: 8px;
+    padding-left: 16px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
