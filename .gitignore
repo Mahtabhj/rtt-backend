@@ -19,7 +19,6 @@ lib/
 lib64/
 parts/
 sdist/
-var/
 wheels/
 *.egg-info/
 .installed.cfg
@@ -66,9 +65,7 @@ target/
 celerybeat-schedule
 
 # Environments
-.venv
-venv/
-ENV/
+
 
 # Rope project settings
 .ropeproject
@@ -323,24 +320,13 @@ tags
 
 ### Project template
 
-rtt/media/
-rtt_admin/public/media/
-
 .pytest_cache/
 
 .idea
-.env
 
 .ipython/
 /.idea/
 **/.idea
 
-# django
-**/local_settings.py
 
-#local Docker yml
-local.yml
 
-static
-rtt/.env
-run_migrations.sh
