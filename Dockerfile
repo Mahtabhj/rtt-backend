@@ -26,3 +26,5 @@ RUN mkdir -p /rtt-backend-app/rtt/rttadmin/build
 COPY --from=build-stage /rtt-backend-admin/rttadmin/build /rtt-backend-app/rtt/rttadmin/build/
 VOLUME /rtt-backend-app
 ADD . /rtt-backend-app
+# Start Gunicorn to serve the application
+CMD ["sh", "gunicorn_start.sh"]
