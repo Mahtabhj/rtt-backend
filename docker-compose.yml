@@ -40,7 +40,7 @@ services:
   rtt-celery:
     image: rtt-backend
     build: .
-    command: bash -c "sh celery_start_stag.sh"
+    command: bash -c "sh rtt/celery_start_stag.sh"
     depends_on:
       - rtt-backend
 
