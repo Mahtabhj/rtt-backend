@@ -19,9 +19,42 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      # If you wish to fail your job when the Quality Gate is red, uncomment the
-      # following lines. This would typically be used to fail a deployment.
-      # - uses: sonarsource/sonarqube-quality-gate-action@master
-      #   timeout-minutes: 5
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  test:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libcurl4-openssl-dev
+    - name: Build psycopg2-binary and pycurl
+      run: |
+          CFLAGS="-Wno-declaration-after-statement" pip install psycopg2-binary==2.9.2 pycurl pytest
+        
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+    - name: Set up Django settings
+      run: |
+        cd rtt
+        export DJANGO_SETTINGS_MODULE=rtt.settings
+        export PYTHONPATH="${PYTHONPATH}:$(pwd)"
+        python manage.py check --settings=$DJANGO_SETTINGS_MODULE  # Initialize Django settings and load application
+    - name: Lint with Ruff  
+      run: |  
+         pip install ruff  
+         ruff --format=github --target-version=py310 .
+      continue-on-error: true
+    - name: Set up Django settings for pytest
+      run: export DJANGO_SETTINGS_MODULE=rtt.settings
+    - name: Run Django tests
+      run: |
+        cd rtt
+        python manage.py test
